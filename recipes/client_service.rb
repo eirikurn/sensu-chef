@@ -22,6 +22,8 @@ when /windows/
   Chef::Provider::Service::Windows
 when /debian/
   Chef::Provider::Service::Init::Debian
+when /smartos/
+  Chef::Provider::Service::Solaris
 else
   Chef::Provider::Service::Init::Redhat
 end
