@@ -1,4 +1,3 @@
-
 # Service configuration
 sensu_dir = node.sensu.directory
 config_file = "#{sensu_dir}/config.json"
@@ -16,7 +15,7 @@ end
 
 # Install sensu gem
 gem_package "sensu" do
-  version node.sensu.version.gsub("-", ".")
+  version node.sensu.version.split("-")[0]
   notifies :create, "ruby_block[sensu_service_trigger]", :immediately
 end
 
